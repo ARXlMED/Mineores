@@ -7,15 +7,24 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     public float speed = 0.01f;
     public float jumpForse = 200f;
-    bool MoveUp;
-    bool MoveDown;
-    bool MoveLeft;
-    bool MoveRight;
+    public Animator animator;
+    public bool IsGround;
+    public bool MoveUp;
+    public bool MoveDown;
+    public bool MoveLeft;
+    public bool MoveRight;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            IsGround = true;
+        }
+    }
     void Update()
     {
         // Движение вперед
@@ -26,6 +35,11 @@ public class Player : MonoBehaviour
         if (MoveUp)
         {
         transform.Translate(0,0,speed * 2);
+        animator.SetBool("Walking", true);
+        }
+        if (MoveUp = false)
+        {
+        animator.SetBool("Walking", false);
         }
         // Движение назад
         if(Input.GetKeyDown(KeyCode.S))
@@ -55,9 +69,10 @@ public class Player : MonoBehaviour
         transform.Translate(-speed,0,0);
         }
         // Прыжок
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && IsGround)
         {
         rb.AddForce(0,jumpForse,0);
+        animator.SetBool("Jumping", true);
         }
     }
 }

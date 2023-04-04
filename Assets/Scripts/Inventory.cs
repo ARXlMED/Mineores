@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject inventor;
-    private bool invbool;
+    public bool invbool;
     void Start() 
     {
         invbool = false;
+        inventor.SetActive(false);
     }
     void Update() 
     {
