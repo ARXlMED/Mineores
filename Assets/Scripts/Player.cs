@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed = 0.01f;
     public float jumpForse = 200f;
     public Animator animator;
+    public int Wood;
     public bool IsGround;
     public bool MoveUp;
     public bool MoveDown;
@@ -25,6 +26,13 @@ public class Player : MonoBehaviour
             IsGround = true;
         }
     }
+    /*private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Wood"))
+        {
+            Wood += 1;
+        }
+    }*/
     void Update()
     {
         // Движение вперед
