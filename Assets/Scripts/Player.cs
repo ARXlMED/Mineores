@@ -29,50 +29,64 @@ public class Player : MonoBehaviour
     {
         // Движение вперед
         if(Input.GetKeyDown(KeyCode.W))
-        MoveUp = true;
+            MoveUp = true;
         if(Input.GetKeyUp(KeyCode.W))
-        MoveUp = false;
+            MoveUp = false;
         if (MoveUp)
         {
-        transform.Translate(0,0,speed * 2);
-        animator.SetBool("Walking", true);
+            transform.Translate(0,0,speed * 2);
+            animator.SetBool("Walking", true);
         }
         if (MoveUp = false)
         {
-        animator.SetBool("Walking", false);
+            animator.SetBool("Walking", false);
         }
         // Движение назад
         if(Input.GetKeyDown(KeyCode.S))
-        MoveDown = true;
+            MoveDown = true;
         if(Input.GetKeyUp(KeyCode.S))
-        MoveDown = false;
+            MoveDown = false;
         if (MoveDown)
         {
-        transform.Translate(0,0,-speed);
+            transform.Translate(0,0,-speed);
         }
-        // Движение вправа
+        // Движение вправо
         if(Input.GetKeyDown(KeyCode.D))
-        MoveRight = true;
+            MoveRight = true;
         if(Input.GetKeyUp(KeyCode.D))
-        MoveRight = false;
+            MoveRight = false;
         if (MoveRight)
         {
-        transform.Translate(speed,0,0);
+            transform.Translate(speed,0,0);
+            animator.SetBool("Right", true);
+        }
+        if (MoveRight = false)
+        {
+            animator.SetBool("Right", false);
         }
         // Движение влево
         if(Input.GetKeyDown(KeyCode.A))
-        MoveLeft = true;
+            MoveLeft = true;
         if(Input.GetKeyUp(KeyCode.A))
-        MoveLeft = false;
+            MoveLeft = false;
         if (MoveLeft)
         {
-        transform.Translate(-speed,0,0);
+            transform.Translate(-speed,0,0);
+            animator.SetBool("Left", true);
+        }
+        if (MoveLeft = false)
+        {
+            animator.SetBool("Left", false);
         }
         // Прыжок
         if(Input.GetKeyDown(KeyCode.Space) && IsGround)
         {
-        rb.AddForce(0,jumpForse,0);
-        animator.SetBool("Jumping", true);
+            rb.AddForce(0,jumpForse,0);
+            animator.SetBool("Jumping", true);
+        }
+        if(IsGround = true)
+        {
+            animator.SetBool("Jumping", false);
         }
     }
 }
