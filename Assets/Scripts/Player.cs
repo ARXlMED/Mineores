@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody rb;
+    private Rigidbody rb;
     public float speed = 0.01f;
     public float jumpForse = 200f;
     public Animator animator;
-    public int Wood;
+    public GameObject ground;
+    public static int Woodint;
     public bool IsGround;
     public bool MoveUp;
     public bool MoveDown;
@@ -17,22 +18,20 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        IsGround = false;
+    }
+    //Проверка стоит ли на земле
+    void OnCollisionEnter(Collision ground) 
+    {
+        IsGround = true;
+    }
+    //else Проверка стоит ли на земле
+    void OnCollisionExit(Collision ground) 
+    {
+        IsGround = false;
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Ground"))
-        {
-            IsGround = true;
-        }
-    }
-    /*private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Wood"))
-        {
-            Wood += 1;
-        }
-    }*/
+
     void Update()
     {
         // Движение вперед
@@ -45,7 +44,7 @@ public class Player : MonoBehaviour
             transform.Translate(0,0,speed * 2);
             animator.SetBool("Walking", true);
         }
-        if (MoveUp = false)
+        if (MoveUp == false)
         {
             animator.SetBool("Walking", false);
         }
@@ -68,7 +67,7 @@ public class Player : MonoBehaviour
             transform.Translate(speed,0,0);
             animator.SetBool("Right", true);
         }
-        if (MoveRight = false)
+        if (MoveRight == false)
         {
             animator.SetBool("Right", false);
         }
@@ -82,7 +81,7 @@ public class Player : MonoBehaviour
             transform.Translate(-speed,0,0);
             animator.SetBool("Left", true);
         }
-        if (MoveLeft = false)
+        if (MoveLeft == false)
         {
             animator.SetBool("Left", false);
         }
@@ -92,9 +91,15 @@ public class Player : MonoBehaviour
             rb.AddForce(0,jumpForse,0);
             animator.SetBool("Jumping", true);
         }
-        if(IsGround = true)
+        if(IsGround == true)
         {
             animator.SetBool("Jumping", false);
         }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(Woodint);
+        }
     }
+
+
 }

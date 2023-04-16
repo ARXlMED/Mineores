@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1493958779012619316}
   - component: {fileID: 1493958779013422100}
   - component: {fileID: 1493958779014389460}
-  - component: {fileID: 6840989815014681252}
+  - component: {fileID: 5981442120258856062}
+  - component: {fileID: 8157903935120896935}
   m_Layer: 0
   m_Name: Branch_01
   m_TagString: Wood
@@ -84,17 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6840989815014681252
-MeshCollider:
+--- !u!65 &5981442120258856062
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493958779012120596}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 5528351815fd4c04abf537f22c7e18f1, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.8140005, y: 0.20832233, z: 0.14940426}
+  m_Center: {x: 0.0016748111, y: 0.043825172, z: -0.0013372749}
+--- !u!114 &8157903935120896935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493958779012120596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eb0a40f1cfd5d4aa4cdbce5ac90aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
