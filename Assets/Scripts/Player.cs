@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float jumpForse = 200f;
     public Animator animator;
     public GameObject ground;
-    public static int Woodint;
+    
     public bool IsGround;
     public bool MoveUp;
     public bool MoveDown;
@@ -94,10 +94,6 @@ public class Player : MonoBehaviour
         if(IsGround == true)
         {
             animator.SetBool("Jumping", false);
-        }
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log(Woodint);
         }
     }
 

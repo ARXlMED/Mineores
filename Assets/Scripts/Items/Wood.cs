@@ -8,7 +8,7 @@ public class Wood : MonoBehaviour
     {  
         if (collision.CompareTag("Player"))
         {
-            Player.Woodint += 1;
+            Woodtxt.Woodint += 1;
             Destroy(gameObject);
         }
     }

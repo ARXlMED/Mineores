@@ -14,17 +14,13 @@ public class Camera : MonoBehaviour
 		float mouseX = Input.GetAxis ("Mouse X") * mouseSens * Time.deltaTime;
 		float mouseY = Input.GetAxis ("Mouse Y") * mouseSens * Time.deltaTime;
 
-        // По вертикали
+        // По движение камеры
 
 		xRotation -= mouseY;
-		xRotation = Mathf.Clamp (xRotation, -80f, 75f);
-		transform.localRotation = Quaternion.Euler (xRotation, 0f, 0f);
-
-        // По горизонтали (если закомментить то будет работать вертикаль, если откомментить то это)
-
         yRotation -= mouseX;
-        transform.localRotation = Quaternion.Euler (0f, -yRotation, 0f);
-        
+		xRotation = Mathf.Clamp (xRotation, -80f, 75f);
+        transform.localRotation = Quaternion.Euler (xRotation, -yRotation, 0f);
+
         // Движение перса вместе с камерой
 
 		playerBody.Rotate (Vector3.up * mouseX);
