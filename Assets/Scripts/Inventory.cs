@@ -6,28 +6,24 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject inventor;
-    public bool invbool;
-    void Start() 
-    {
-        invbool = false;
-        inventor.SetActive(false);
-    }
-    void Update() 
-    {
-       if(Input.GetKeyDown(KeyCode.I) && invbool == false)
-       {
-        inventor.SetActive(true);
-        invbool = true;    
-       }
-       if(Input.GetKeyDown(KeyCode.I) && invbool == true)
-       {
-        inventor.SetActive(false);
-        invbool = false;    
-       }  
-    }
-    public void ExitInv()
+    private bool isInventoryOpen = false;
+
+    private void Start()
     {
         inventor.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInventoryOpen = !isInventoryOpen;
+            inventor.SetActive(isInventoryOpen);
+        }
+    }
+    public void Buton()
+    {
+        inventor.SetActive(false);
+        isInventoryOpen = false;
+    }
 }

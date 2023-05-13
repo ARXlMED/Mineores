@@ -9,16 +9,20 @@ public class Player : MonoBehaviour
     public float jumpForse = 200f;
     public Animator animator;
     public GameObject ground;
-    
     public bool IsGround;
     public bool MoveUp;
     public bool MoveDown;
     public bool MoveLeft;
     public bool MoveRight;
+  //  public GameObject furnancemenu;
+    public GameObject furnace;
+    public GameObject furnaceplace;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         IsGround = false;
+  //      furnancemenu.SetActive(false);
     }
     //Проверка стоит ли на земле
     void OnCollisionEnter(Collision ground) 
@@ -95,7 +99,13 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Jumping", false);
         }
+        // Спаун печки
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
+        }
     }
+
 
 
 }
