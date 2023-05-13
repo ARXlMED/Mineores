@@ -9,7 +9,6 @@ public class Furnace : MonoBehaviour
     void Start()
     {
         furnancemenu = GameObject.Find("Furcace");
-        furnancemenu.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
