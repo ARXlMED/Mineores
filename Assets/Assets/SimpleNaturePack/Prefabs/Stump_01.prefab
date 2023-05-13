@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 108507113624698413}
   - component: {fileID: 108507113621798413}
   - component: {fileID: 108507113622797517}
-  - component: {fileID: 840579875832209995}
   - component: {fileID: 449812981781877506}
+  - component: {fileID: -6990293325463782378}
   m_Layer: 0
   m_Name: Stump_01
   m_TagString: Untagged
@@ -85,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &840579875832209995
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108507113624723981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 768be665aba8b4e4aae7a973ae9616cf, type: 3}
 --- !u!114 &449812981781877506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4eb0a40f1cfd5d4aa4cdbce5ac90aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-6990293325463782378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108507113624723981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6593448, y: 0.81315106, z: 0.57096684}
+  m_Center: {x: -0.04072857, y: 0.40657553, z: 0}
