@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject inventor;
+    public static GameObject inventor;
     private bool isInventoryOpen = false;
 
     private void Start()

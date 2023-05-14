@@ -16,6 +16,7 @@ public class Furnace : MonoBehaviour
         {
             furbool = true;
             furnancemenu.SetActive(true);
+            Inventory.inventor.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -24,6 +25,7 @@ public class Furnace : MonoBehaviour
         {
             furbool = false;
             furnancemenu.SetActive(false);
+            Inventory.inventor.SetActive(false);
         }
     }
 }
