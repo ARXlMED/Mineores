@@ -14,15 +14,18 @@ public class Player : MonoBehaviour
     public bool MoveDown;
     public bool MoveLeft;
     public bool MoveRight;
-  //  public GameObject furnancemenu;
+
     public GameObject furnace;
     public GameObject furnaceplace;
+
+    bool furbool = false;
+    public GameObject furnancemenu;
+    public Inventory a;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         IsGround = false;
-  //      furnancemenu.SetActive(false);
     }
     //Проверка стоит ли на земле
     void OnCollisionEnter(Collision ground) 
@@ -100,9 +103,29 @@ public class Player : MonoBehaviour
             animator.SetBool("Jumping", false);
         }
         // Спаун печки
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F) /*&& furnaceplace.transform.parent == null*/)
         {
             Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
+        }
+    }
+    // Включение интерфейса при подходе к печке
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Furnace"))
+        {
+            furbool = true;
+            furnancemenu.SetActive(true);
+            a.inventor.SetActive(true);
+        }
+    }
+    // Выключение интерфейса при подходе к печке
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Furnace"))
+        {
+            furbool = false;
+            furnancemenu.SetActive(false);
+            a.inventor.SetActive(false);
         }
     }
 

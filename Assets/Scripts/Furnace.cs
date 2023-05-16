@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Furnace : MonoBehaviour
 {
-    bool furbool = false;
+    /*bool furbool = false;
     public GameObject furnancemenu;
-    void Start()
-    {
-        furnancemenu = GameObject.Find("Furcace");
-    }
+    public Inventory a;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             furbool = true;
             furnancemenu.SetActive(true);
-            Inventory.inventor.SetActive(true);
+            a.inventor.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -25,7 +22,15 @@ public class Furnace : MonoBehaviour
         {
             furbool = false;
             furnancemenu.SetActive(false);
-            Inventory.inventor.SetActive(false);
+            a.inventor.SetActive(false);
         }
-    }
+    }*/
+
+
+
+
+
+
+
+
 }

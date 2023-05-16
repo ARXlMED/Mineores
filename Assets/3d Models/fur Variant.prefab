@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fur Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 854a71b2ef1814c4aa57dde9578930b1, type: 3}
+      propertyPath: m_TagString
+      value: Furnace
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854a71b2ef1814c4aa57dde9578930b1, type: 3}
 --- !u!1 &8150991959268696307 stripped
@@ -89,16 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.105581164, y: 0.10665413, z: 0.068171054}
   m_Center: {x: 0.001304369, y: -0.0030785894, z: 0.031053403}
---- !u!114 &-8174813833344067789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150991959268696307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 402033b65863aa748b6935f3c699db96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  furnancemenu: {fileID: 0}
