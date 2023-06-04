@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject furnancemenu;
     public Inventory a;
     public GameObject craftmenu;
+    public GameObject intbut;
 
     void Start()
     {
@@ -123,9 +124,10 @@ public class Player : MonoBehaviour
             furnancemenu.SetActive(true);
             a.inventor.SetActive(true);
             craftmenu.SetActive(false);
+            intbut.SetActive(false);
         }
     }
-    // Выключение интерфейса при подходе к печке
+    // Выключение интерфейса при отходе от печки
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Furnace"))
@@ -134,6 +136,7 @@ public class Player : MonoBehaviour
             furnancemenu.SetActive(false);
             a.inventor.SetActive(false);
             craftmenu.SetActive(true);
+            intbut.SetActive(true);
         }
     }
     // Крафт печки
