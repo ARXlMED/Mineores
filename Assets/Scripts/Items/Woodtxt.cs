@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Woodtxt : MonoBehaviour
 {
-    public static int Woodint;
+    private static int Woodint;
     Text text;
     void Start()
     {

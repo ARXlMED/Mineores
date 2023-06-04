@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public GameObject furnace;
     public GameObject furnaceplace;
+    public int furint = 0;
 
     //bool furbool = false;
     public GameObject furnancemenu;
@@ -28,12 +29,12 @@ public class Player : MonoBehaviour
         IsGround = false;
     }
     //Проверка стоит ли на земле
-    void OnCollisionEnter(Collision ground) 
+    void OnCollisionEnter(Collision ground)
     {
         IsGround = true;
     }
     //else Проверка стоит ли на земле
-    void OnCollisionExit(Collision ground) 
+    void OnCollisionExit(Collision ground)
     {
         IsGround = false;
     }
@@ -42,13 +43,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Движение вперед
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
             MoveUp = true;
-        if(Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))
             MoveUp = false;
         if (MoveUp)
         {
-            transform.Translate(0,0,speed * 2);
+            transform.Translate(0, 0, speed * 2);
             animator.SetBool("Walking", true);
         }
         if (MoveUp == false)
@@ -56,22 +57,22 @@ public class Player : MonoBehaviour
             animator.SetBool("Walking", false);
         }
         // Движение назад
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
             MoveDown = true;
-        if(Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S))
             MoveDown = false;
         if (MoveDown)
         {
-            transform.Translate(0,0,-speed);
+            transform.Translate(0, 0, -speed);
         }
         // Движение вправо
-        if(Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
             MoveRight = true;
-        if(Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.D))
             MoveRight = false;
         if (MoveRight)
         {
-            transform.Translate(speed,0,0);
+            transform.Translate(speed, 0, 0);
             animator.SetBool("Right", true);
         }
         if (MoveRight == false)
@@ -79,13 +80,13 @@ public class Player : MonoBehaviour
             animator.SetBool("Right", false);
         }
         // Движение влево
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
             MoveLeft = true;
-        if(Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A))
             MoveLeft = false;
         if (MoveLeft)
         {
-            transform.Translate(-speed,0,0);
+            transform.Translate(-speed, 0, 0);
             animator.SetBool("Left", true);
         }
         if (MoveLeft == false)
@@ -93,11 +94,11 @@ public class Player : MonoBehaviour
             animator.SetBool("Left", false);
         }
         // Прыжок
-        if(Input.GetKeyDown(KeyCode.Space) && IsGround)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGround)
         {
-            rb.AddForce(0,jumpForse,0);
+            rb.AddForce(0, jumpForse, 0);
         }
-        if(IsGround == true)
+        if (IsGround == true)
         {
             animator.SetBool("Jumping", false);
         }
@@ -106,7 +107,7 @@ public class Player : MonoBehaviour
             animator.SetBool("Jumping", true);
         }
         // Спаун печки
-        if (Input.GetKeyDown(KeyCode.F) /*&& furnaceplace.transform.parent == null*/)
+        if (Input.GetKeyDown(KeyCode.F) && furint >= 1)
         {
             Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
         }
@@ -131,7 +132,14 @@ public class Player : MonoBehaviour
             a.inventor.SetActive(false);
         }
     }
-
-
-
+    // Крафт печки
+    public void Craftf();
+    {
+        if (Orestxt.Oresint >= 5 && Woodtxt.Woodint >= 2)
+        {
+            furint += 1;
+            Orestxt.Oresint -= 5;
+            Woodtxt.Woodint -= 2;
+        }
+    }
 }

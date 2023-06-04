@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Orestxt : MonoBehaviour
 {
-    public static int Oresint;
+    private static int Oresint;
     Text text;
     void Start()
     {
