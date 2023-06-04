@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public GameObject furnace;
     public GameObject furnaceplace;
 
-    bool furbool = false;
+    //bool furbool = false;
     public GameObject furnancemenu;
     public Inventory a;
 
@@ -96,14 +96,17 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && IsGround)
         {
             rb.AddForce(0,jumpForse,0);
-            animator.SetBool("Jumping", true);
         }
         if(IsGround == true)
         {
             animator.SetBool("Jumping", false);
         }
+        if (IsGround == false)
+        {
+            animator.SetBool("Jumping", true);
+        }
         // Спаун печки
-        if(Input.GetKeyDown(KeyCode.F) /*&& furnaceplace.transform.parent == null*/)
+        if (Input.GetKeyDown(KeyCode.F) /*&& furnaceplace.transform.parent == null*/)
         {
             Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
         }
@@ -113,7 +116,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Furnace"))
         {
-            furbool = true;
+            //furbool = true;
             furnancemenu.SetActive(true);
             a.inventor.SetActive(true);
         }
@@ -123,7 +126,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Furnace"))
         {
-            furbool = false;
+            //furbool = false;
             furnancemenu.SetActive(false);
             a.inventor.SetActive(false);
         }

@@ -7,9 +7,9 @@ public class Gun : MonoBehaviour
     public Transform shotPos;
     public GameObject bullet;
 
-    void Update()
+    public void Guns()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(bullet, shotPos.transform.position, transform.rotation);
         }
