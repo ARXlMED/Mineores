@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     //bool furbool = false;
     public GameObject furnancemenu;
     public Inventory a;
+    public GameObject craftmenu;
 
     void Start()
     {
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && furint >= 1)
         {
             Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
+            furint -= 1;
         }
     }
     // Включение интерфейса при подходе к печке
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
             //furbool = true;
             furnancemenu.SetActive(true);
             a.inventor.SetActive(true);
+            craftmenu.SetActive(false);
         }
     }
     // Выключение интерфейса при подходе к печке
@@ -130,10 +133,11 @@ public class Player : MonoBehaviour
             //furbool = false;
             furnancemenu.SetActive(false);
             a.inventor.SetActive(false);
+            craftmenu.SetActive(true);
         }
     }
     // Крафт печки
-    public void Craftf();
+    public void Craftf()
     {
         if (Orestxt.Oresint >= 5 && Woodtxt.Woodint >= 2)
         {

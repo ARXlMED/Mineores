@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Mushroomstxt : MonoBehaviour
 {
-    private static int Mushroomsint;
+    public static int Mushroomsint;
     Text text;
     void Start()
     {

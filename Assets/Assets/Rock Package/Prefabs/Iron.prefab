@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013308252972}
   - component: {fileID: 205000011883594630}
+  - component: {fileID: 2437509405466905293}
   m_Layer: 0
   m_Name: Iron
   m_TagString: Untagged
@@ -145,6 +146,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 23000012150228588}
   m_Enabled: 1
+--- !u!65 &2437509405466905293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011949594382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0827827, y: 1.7602103, z: 3.1601257}
+  m_Center: {x: -0.09885597, y: 0.38010514, z: 0.040100098}
 --- !u!1 &1000012074862460
 GameObject:
   m_ObjectHideFlags: 0
