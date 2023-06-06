@@ -19,16 +19,17 @@ public class Player : MonoBehaviour
     public GameObject furnaceplace;
     public int furint = 0;
 
-    //bool furbool = false;
     public GameObject furnancemenu;
     public Inventory a;
     public GameObject craftmenu;
     public GameObject intbut;
+    public GameObject AK;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         IsGround = false;
+        AK.SetActive(false);
     }
     //Проверка стоит ли на земле
     void OnCollisionEnter(Collision ground)
@@ -147,6 +148,16 @@ public class Player : MonoBehaviour
             furint += 1;
             Orestxt.Oresint -= 5;
             Woodtxt.Woodint -= 2;
+        }
+    }
+    // Крафт калаша
+    public void Craftak()
+    {
+        if (/*слитков >= 10 && */ Woodtxt.Woodint >= 5)
+        {
+            AK.SetActive(true);
+            // слитков -=10;
+            Woodtxt.Woodint -= 5;
         }
     }
 }

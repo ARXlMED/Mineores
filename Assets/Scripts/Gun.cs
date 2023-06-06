@@ -4,14 +4,48 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Transform shotPos;
-    public GameObject bullet;
+    public GameObject bulletPrefab; 
+    public Transform shootPosition; 
+    public float shootDelay = 0.1f; 
+    public float speed; 
 
-    public void Guns()
+    private bool shooting = false;
+    private float shootTimer = 0f;
+
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetMouseButton(0))
         {
-            Instantiate(bullet, shotPos.transform.position, transform.rotation);
+            shooting = true;
         }
+        else
+        {
+            shooting = false;
+        }
+
+        if (shooting)
+        {
+            if (shootTimer <= 0f)
+            {
+                Shoot();
+                shootTimer = shootDelay;
+            }
+            else
+            {
+                shootTimer -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            shootTimer = 0f;
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bulletObject = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation);
+        Rigidbody bulletBody = bulletObject.GetComponent<Rigidbody>();
+        bulletBody.velocity = shootPosition.forward * speed; // скорость пули
+        Destroy(bulletObject, 5f); // время, через которое пуля исчезнет
     }
 }
