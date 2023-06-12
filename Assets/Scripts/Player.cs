@@ -25,11 +25,17 @@ public class Player : MonoBehaviour
     public GameObject intbut;
     public GameObject AK;
 
+    public float fulltime;
+    public float timeLeft = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         IsGround = false;
         AK.SetActive(false);
+        craftmenu.SetActive(true);
+        furnancemenu.SetActive(false);
+        intbut.SetActive(true);
     }
     //Проверка стоит ли на земле
     void OnCollisionEnter(Collision ground)
@@ -156,7 +162,37 @@ public class Player : MonoBehaviour
         if (/*слитков >= 10 && */ Woodtxt.Woodint >= 5)
         {
             AK.SetActive(true);
-            // слитков -=10;
+            IronBar.Iron -= 10;
+            Woodtxt.Woodint -= 5;
+        }
+    }
+
+    public void Start1()
+    {
+        timeLeft = fulltime;
+        StartCoroutine(StartTimer());
+    }
+
+    public IEnumerator StartTimer()
+    {
+        while (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            yield return null;
+        }
+        if (timeLeft < 0)
+        {
+            timeLeft = 1000f;
+        }
+    }
+
+    public void Craftbar()
+    {
+        StartTimer();
+        if (Orestxt.Oresint >= 1 && Woodtxt.Woodint >= 5)
+        {
+            IronBar.Iron += 1;
+            Orestxt.Oresint -= 1;
             Woodtxt.Woodint -= 5;
         }
     }
