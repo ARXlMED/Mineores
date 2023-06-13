@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int rt;
     private Rigidbody rb;
     public float speed = 0.01f;
     public float jumpForse = 200f;
@@ -121,6 +122,14 @@ public class Player : MonoBehaviour
             Instantiate(furnace, furnaceplace.transform.position, furnaceplace.transform.rotation);
             furint -= 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Woodtxt.Woodint += 10;
+            Orestxt.Oresint += 10;
+            IronBar.Iron += 10;
+            Mushroomstxt.Mushroomsint += 10;
+        }
     }
     // Включение интерфейса при подходе к печке
     private void OnTriggerEnter(Collider other)
@@ -159,36 +168,47 @@ public class Player : MonoBehaviour
     // Крафт калаша
     public void Craftak()
     {
-        if (/*слитков >= 10 && */ Woodtxt.Woodint >= 5)
+        if (IronBar.Iron >= 10 && Woodtxt.Woodint >= 5)
         {
             AK.SetActive(true);
             IronBar.Iron -= 10;
             Woodtxt.Woodint -= 5;
         }
     }
-
-    public void Start1()
+    // Крафт пуль
+    public void Craftbul()
     {
-        timeLeft = fulltime;
-        StartCoroutine(StartTimer());
+        if (IronBar.Iron >= 5 && Mushroomstxt.Mushroomsint >= 10)
+        {
+            Gun.bulletint += 10;
+            IronBar.Iron -= 5;
+            Mushroomstxt.Mushroomsint -= 10;
+        }
     }
 
-    public IEnumerator StartTimer()
+    /*public IEnumerator StartTimer()
     {
+        timeLeft = fulltime;
         while (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
             yield return null;
         }
-        if (timeLeft < 0)
-        {
-            timeLeft = 1000f;
-        }
-    }
+    }*/
 
     public void Craftbar()
     {
-        StartTimer();
+        //StartCoroutine(StartTimer());
+        /*while (timeLeft > 0)
+        {
+            rt += 1;
+        }*/
+        timeLeft = fulltime;
+        while (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            //yield return null;
+        }
         if (Orestxt.Oresint >= 1 && Woodtxt.Woodint >= 5)
         {
             IronBar.Iron += 1;

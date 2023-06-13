@@ -7,7 +7,8 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab; 
     public Transform shootPosition; 
     public float shootDelay = 0.1f; 
-    public float speed; 
+    public float speed;
+    public static int bulletint = 0;
 
     private bool shooting = false;
     private float shootTimer = 0f;
@@ -23,7 +24,7 @@ public class Gun : MonoBehaviour
             shooting = false;
         }
 
-        if (shooting)
+        if (shooting && bulletint >= 0)
         {
             if (shootTimer <= 0f)
             {

@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject gun;
     public GameObject furjace;
+    public GameObject bulshit;
 
     private void Start()
     {
@@ -33,10 +34,18 @@ public class Inventory : MonoBehaviour
     {
         furjace.SetActive(true);
         gun.SetActive(false);
+        bulshit.SetActive(false);
     }
     public void Baton2()
     {
         furjace.SetActive(false);
         gun.SetActive(true);
+        bulshit.SetActive(false);
+    }
+    public void Baton3()
+    {
+        furjace.SetActive(false);
+        gun.SetActive(false);
+        bulshit.SetActive(true);
     }
 }
