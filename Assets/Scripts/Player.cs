@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             MoveUp = false;
         if (MoveUp)
         {
-            transform.Translate(0, 0, speed * 2);
+            transform.Translate(-speed * 3, 0, speed * 2);
             animator.SetBool("Walking", true);
         }
         if (MoveUp == false)
@@ -111,10 +111,12 @@ public class Player : MonoBehaviour
         if (IsGround == true)
         {
             animator.SetBool("Jumping", false);
+            AK.SetActive(true);
         }
         if (IsGround == false)
         {
             animator.SetBool("Jumping", true);
+            AK.SetActive(false);
         }
         // Спаун печки
         if (Input.GetKeyDown(KeyCode.F) && furint >= 1)

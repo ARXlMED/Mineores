@@ -7,7 +7,7 @@ public class Camera : MonoBehaviour
     public float mouseSens = 200f;
 	public Transform playerBody;
 	float xRotation = 0f;
-    float yRotation = 0f;
+    float yRotation = 60f;
 
 	void Update ()
     {
